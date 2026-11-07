@@ -1,0 +1,10 @@
+name: "main-menu"
+scale_along_z: 0
+embedded_instances {
+  id: "go"
+  data: "components {\n"
+  "  id: \"main-menu\"\n"
+  "  component: \"/src/main-menu/main-menu.gui\"\n"
+  "}\n"
+  ""
+}
