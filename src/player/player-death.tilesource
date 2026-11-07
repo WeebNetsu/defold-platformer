@@ -1,7 +1,7 @@
 image: "/assets/images/character/Dead-Sheet.png"
 tile_width: 80
 tile_height: 64
-collision_groups: "playerDeathSource"
+collision_groups: "playerDeathTileSource"
 animations {
   id: "anim"
   start_tile: 1

@@ -1,0 +1,12 @@
+image: "/assets/images/character/Idle-Sheet.png"
+tile_width: 64
+tile_height: 80
+collision_groups: "playerIdleTileSource"
+animations {
+  id: "anim"
+  start_tile: 1
+  end_tile: 4
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 3
+}
+extrude_borders: 2
