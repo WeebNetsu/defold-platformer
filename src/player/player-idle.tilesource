@@ -1,6 +1,6 @@
 image: "/assets/images/character/Idle-Sheet.png"
 tile_width: 64
-tile_height: 80
+tile_height: 64
 collision_groups: "playerIdleTileSource"
 animations {
   id: "anim"

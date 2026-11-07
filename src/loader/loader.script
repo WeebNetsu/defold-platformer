@@ -1,19 +1,21 @@
-local function load_menu(self)
-	msg.post("go#main-menu", "load")
-	msg.post("go#main-menu", "enable")
-end
-local function unload_menu(self)
-	msg.post("go#main-menu","unload")
-end
-local function load_main(self)
-	msg.post("go#level-001", "load")
-	msg.post("go#level-001", "enable")
-end
+local scenes = {"go#main-menu", "go#level-001"}
 
+--- This will automatically load and unload scenes based on the scene passed in
+---@param scene string the scene you want to load, ie. "go#main-menu"
+local function load_scene(self, scene)
+	for index, value in ipairs(scenes) do
+		if value == scene then
+			msg.post(value, "load")
+			msg.post(value, "enable")
+		else
+			msg.post(value,"unload")
+		end
+	end
+end
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
-	load_menu(self)
+	load_scene(self, "go#main-menu")
 end
 
 function final(self)
@@ -45,8 +47,7 @@ end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("start_game") then
-		unload_menu(self)
-		load_main(self)
+		load_scene(self, "go#level-001")
 	end
 end
 

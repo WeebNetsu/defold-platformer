@@ -1,8 +1,21 @@
-function init(self)
+local sprites = {"#idleSprite", "#deathSprite", "#jumpSprite"}
 
+--- This will automatically load and unload sprites based on the sprite passed in
+---@param sprite string the sprite you want to load, ie. "#jumpSprite"
+local function load_sprite(self, sprite)
+	for index, value in ipairs(sprites) do
+		if value == sprite then
+			msg.post(value, "enable")
+			msg.post(value, "play_animation", {id=hash("anim")})
+		else
+			msg.post(value,"disable")
+		end
+	end
+end
+
+function init(self)
 	msg.post(".", "acquire_input_focus")
-	msg.post("#idleSprite", "enable")
-	msg.post("#deathSprite", "disable")
+	load_sprite(self, "#idleSprite")
 end
 
 function final(self)
@@ -36,6 +49,9 @@ function on_message(self, message_id, message, sender)
 	-- Add message-handling code here
 	-- Learn more: https://defold.com/manuals/message-passing/
 	-- Remove this function if not needed
+	if message_id == hash("animation_done") then
+		load_sprite(self, "#idleSprite")
+	end
 end
 
 function on_input(self, action_id, action)
@@ -50,8 +66,9 @@ function on_input(self, action_id, action)
 	-- Remove this function if not needed
 
 	if action_id == hash("JUMP") then
-		msg.post("#idleSprite", "disable")
-		msg.post("#deathSprite", "enable")
+		load_sprite(self, "#jumpSprite")
+	elseif action_id == hash("DEATH") then
+		load_sprite(self, "#deathSprite")
 	end
 end
 

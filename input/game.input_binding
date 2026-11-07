@@ -2,6 +2,10 @@ key_trigger {
   input: KEY_SPACE
   action: "JUMP"
 }
+key_trigger {
+  input: KEY_EQUALS
+  action: "DEATH"
+}
 mouse_trigger {
   input: MOUSE_BUTTON_LEFT
   action: "touch"
