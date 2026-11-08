@@ -6,6 +6,14 @@ key_trigger {
   input: KEY_EQUALS
   action: "DEATH"
 }
+key_trigger {
+  input: KEY_D
+  action: "RIGHT"
+}
+key_trigger {
+  input: KEY_A
+  action: "LEFT"
+}
 mouse_trigger {
   input: MOUSE_BUTTON_LEFT
   action: "touch"

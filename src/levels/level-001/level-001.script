@@ -1,12 +1,8 @@
 function init(self)
 	-- msg.post(".", "acquire_input_focus")
-
-	-- Define your desired X, Y, Z spawn coordinates
-	-- local spawn_pos = vmath.vector3(0, -66, 0)
 	local spawn_pos = vmath.vector3(0, -236, 0)
 	
 	collectionfactory.create("/player#playerfactory", spawn_pos)
-	-- collectionfactory.create("/player#playerfactory", spawn_pos)
 end
 
 function final(self)
